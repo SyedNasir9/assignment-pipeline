@@ -32,10 +32,6 @@ jobs:
         working-directory: terraform
         run: terraform init -input=false
 
-      - name: Terraform apply (infra only)
-        working-directory: terraform
-        run: terraform apply -auto-approve
-
       - name: Get AWS account ID
         run: |
           echo "ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)" >> $GITHUB_ENV
